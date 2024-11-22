@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "1e54422a-f251-48e4-b3f7-5d2777969349",
+		"name": "Rotas API nph",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33818165"
+	},
+	"item": [
+		{
+			"name": "Usuário",
+			"item": [
+				{
+					"name": "Busca usuários",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}usuarios",
+							"host": [
+								"{{base_url}}usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastra usuário",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Harrison\",\r\n    \"email\": \"harrison92@gmail.com\",\r\n    \"senha\": \"Uauh@0500\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}usuarios",
+							"host": [
+								"{{base_url}}usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizado usuário",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Luiz\",\r\n    \"email\": \"luiz@uauh.com.br\",\r\n    \"senha\": \"Uauh@159\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}usuarios/8",
+							"host": [
+								"{{base_url}}usuarios"
+							],
+							"path": [
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Projeto",
+			"item": [
+				{
+					"name": "Busca projetos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}projetos",
+							"host": [
+								"{{base_url}}projetos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastra projetos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuarioId\": 8,\r\n    \"titulo\": \"obrigatorio\",\r\n    \"fotoCapa\": \"\",\r\n    \"hospedagem\": \"\",\r\n    \"prototipo\": \"\",\r\n    \"design\": \"\",\r\n    \"aplicacao\": \"\",\r\n    \"descricao\": \"projeto de teste\",\r\n    \"tecnologias\": \"HTML, CSS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}projetos",
+							"host": [
+								"{{base_url}}projetos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizado projetos",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuarioId\": 8,\r\n    \"titulo\": \"projeto 01\",\r\n    \"fotoCapa\": \"\",\r\n    \"hospedagem\": \"\",\r\n    \"prototipo\": \"\",\r\n    \"design\": \"\",\r\n    \"aplicacao\": \"\",\r\n    \"descricao\": \"projeto de teste\",\r\n    \"tecnologias\": \"HTML, CSS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}projetos/1",
+							"host": [
+								"{{base_url}}projetos"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000/api/",
+			"type": "string"
+		}
+	]
+}
