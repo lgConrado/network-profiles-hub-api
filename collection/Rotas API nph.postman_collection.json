@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1e54422a-f251-48e4-b3f7-5d2777969349",
+		"_postman_id": "d295d47e-06a8-4f23-8b5b-0292561e33d7",
 		"name": "Rotas API nph",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "33818165"
@@ -30,7 +30,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Harrison\",\r\n    \"email\": \"harrison92@gmail.com\",\r\n    \"senha\": \"Uauh@0500\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Luiz Gustavo\",\r\n    \"email\": \"luiz@gmail.com\",\r\n    \"senha\": \"Uauh@0500\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -78,8 +78,18 @@
 			"name": "Projeto",
 			"item": [
 				{
-					"name": "Busca projetos",
+					"name": "Busca projeto",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImVtYWlsIjoibHVpekBnbWFpbC5jb20iLCJpYXQiOjE3MzI1NDQyODAsImV4cCI6MTczMjU4NzQ4MH0.x3JGkdYwzJUxRSezQyEuYDVrR1U7LXxyT19AyxtACTw",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -92,13 +102,23 @@
 					"response": []
 				},
 				{
-					"name": "Cadastra projetos",
+					"name": "Cadastra projeto",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImVtYWlsIjoibHVpekBnbWFpbC5jb20iLCJpYXQiOjE3MzI1NDQyODAsImV4cCI6MTczMjU4NzQ4MH0.x3JGkdYwzJUxRSezQyEuYDVrR1U7LXxyT19AyxtACTw",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"usuarioId\": 8,\r\n    \"titulo\": \"obrigatorio\",\r\n    \"fotoCapa\": \"\",\r\n    \"hospedagem\": \"\",\r\n    \"prototipo\": \"\",\r\n    \"design\": \"\",\r\n    \"aplicacao\": \"\",\r\n    \"descricao\": \"projeto de teste\",\r\n    \"tecnologias\": \"HTML, CSS\"\r\n}",
+							"raw": "{\r\n    \"usuarioId\": 10,\r\n    \"titulo\": \"Projeto 01\",\r\n    \"fotoCapa\": \"\",\r\n    \"hospedagem\": \"\",\r\n    \"prototipo\": \"\",\r\n    \"design\": \"\",\r\n    \"aplicacao\": \"\",\r\n    \"descricao\": \"projeto de teste\",\r\n    \"tecnologias\": \"HTML, CSS\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -115,8 +135,18 @@
 					"response": []
 				},
 				{
-					"name": "Atualizado projetos",
+					"name": "Atualizado projeto",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImVtYWlsIjoibHVpekBnbWFpbC5jb20iLCJpYXQiOjE3MzI1NDQyODAsImV4cCI6MTczMjU4NzQ4MH0.x3JGkdYwzJUxRSezQyEuYDVrR1U7LXxyT19AyxtACTw",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -141,6 +171,94 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Perfil",
+			"item": [
+				{
+					"name": "Busca perfis",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImVtYWlsIjoibHVpekBnbWFpbC5jb20iLCJpYXQiOjE3MzI1NDQyODAsImV4cCI6MTczMjU4NzQ4MH0.x3JGkdYwzJUxRSezQyEuYDVrR1U7LXxyT19AyxtACTw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}perfis",
+							"host": [
+								"{{base_url}}perfis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizado perfil",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImVtYWlsIjoibHVpekBnbWFpbC5jb20iLCJpYXQiOjE3MzI1NDQyODAsImV4cCI6MTczMjU4NzQ4MH0.x3JGkdYwzJUxRSezQyEuYDVrR1U7LXxyT19AyxtACTw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"foto\": \"\",\r\n    \"areaAtuacao\": \"Desenvolvedor\",\r\n    \"biografia\": \"\",\r\n    \"linkedin\": \"\",\r\n    \"behance\": \"\",\r\n    \"figma\": \"\",\r\n    \"discord\": \"\",\r\n    \"github\": \"\",\r\n    \"skills\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}perfis/4",
+							"host": [
+								"{{base_url}}perfis"
+							],
+							"path": [
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Logar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"luiz@gmail.com\",\r\n    \"senha\": \"Uauh@0500\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}login",
+					"host": [
+						"{{base_url}}login"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
