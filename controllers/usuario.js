@@ -13,8 +13,8 @@ const insertUsuario = async (req, res) => {
 
 const getUsuarios = async (_, res) => {
   try {
-    const bancos = await UsuarioServices.getUsuarios();
-    res.status(200).json(bancos);
+    const usuarios = await UsuarioServices.getUsuarios();
+    res.status(200).json(usuarios);
   } catch (error) {
     error instanceof Error
       ? res.status(500).json({ error: error.message })

@@ -1,4 +1,4 @@
-import dotenv from "dotenv";
+const dotenv = require("dotenv");
 
 const { verify } = require("jsonwebtoken");
 
@@ -21,7 +21,6 @@ const verifyToken = async (req, res) => {
     const usuarios = await UsuarioRepository.selectUsuario(valid.id);
     const user = {
       email: usuarios["E-mail"],
-      nome: usuarios["Nome"],
     };
 
     res.status(200).send({ valid: true, user });
@@ -30,4 +29,4 @@ const verifyToken = async (req, res) => {
   }
 };
 
-export default verifyToken;
+module.exports = { verifyToken };

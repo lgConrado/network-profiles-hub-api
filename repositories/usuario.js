@@ -1,12 +1,12 @@
-const db = require ("../database");
-
+const db = require("../database");
+const { Encrypt } = require("../utilities/encrypt");
 const insertUsuario = async (req, res) => {
   const usuario = req;
   let query, values, item;
 
   try {
     query = `INSERT INTO public.usuarios (nome, email, senha) VALUES ($1, $2, $3) RETURNING *;`;
-    values = [usuario.nome, usuario.email, usuario.senha];
+    values = [usuario.nome, usuario.email, Encrypt(usuario.senha)];
     item = await db.query(query, values);
 
     return item.rows;

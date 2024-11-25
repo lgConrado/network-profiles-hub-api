@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+const bcrypt = require("bcrypt");
 
 const Encrypt = (password) => {
   const salt = bcrypt.genSaltSync(10);
@@ -7,4 +7,4 @@ const Encrypt = (password) => {
   return hash;
 };
 
-export default Encrypt;
+module.exports = { Encrypt };

@@ -1,10 +1,10 @@
-import db from "../database";
-import generateToken from "../token/generateToken";
-import MatchPassword from "../utilities/MatchPassword";
+const db = require("../database");
+const { generateToken } = require("../token");
+const { MatchPassword } = require("../utilities/match-password");
 
 const auth = async (req) => {
   const usuario = req;
-  console.log("Payload: ", user);
+  console.log("Payload: ", usuario);
 
   try {
     const result = await db.query(
@@ -16,7 +16,7 @@ const auth = async (req) => {
     const userDb = result.rows[0];
 
     if (result.rows.length === 0) {
-      throw Error("Usuário não encontrado");
+      throw new Error("Usuário não encontrado");
     }
 
     const passwordMatch = MatchPassword(usuario.senha, userDb.senha);
@@ -28,9 +28,7 @@ const auth = async (req) => {
     const token = generateToken(userDb);
     console.log("Token gerado:", token);
 
-    delete userDb.id;
     delete userDb.senha;
-    delete userDb.situacao;
 
     return { token, userDb };
   } catch (error) {

@@ -15,8 +15,8 @@ const insertProjeto = async (req, res) => {
 
 const getProjetos = async (_, res) => {
   try {
-    const bancos = await ProjetoServices.getProjetos();
-    res.status(200).json(bancos);
+    const projetos = await ProjetoServices.getProjetos();
+    res.status(200).json(projetos);
   } catch (error) {
     error instanceof Error
       ? res.status(500).json({ error: error.message })
