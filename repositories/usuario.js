@@ -24,7 +24,7 @@ const insertUsuario = async (req, res) => {
 
 const getUsuarios = async (res) => {
   try {
-    const query = `SELECT usuarios.id, usuarios.nome AS "Nome", usuarios.email AS "E-mail", usuarios.senha AS "Senha" FROM public.usuarios ORDER BY nome ASC;`;
+    const query = `SELECT usuarios.id, usuarios.nome AS "Nome", usuarios.email AS "E-mail" FROM public.usuarios ORDER BY nome ASC;`;
     const { rows } = await db.query(query);
 
     return rows;
@@ -37,7 +37,7 @@ const getUsuarios = async (res) => {
 
 const selectUsuario = async (id, res) => {
   try {
-    const query = `SELECT usuarios.id,usuarios.nome AS "Nome", usuarios.email AS "E-mail", usuarios.senha AS "Senha" FROM public.usuarios WHERE id = $1 ORDER BY nome ASC;`;
+    const query = `SELECT usuarios.id,usuarios.nome AS "Nome", usuarios.email AS "E-mail" FROM public.usuarios WHERE id = $1 ORDER BY nome ASC;`;
     const values = [id];
     const { rows } = await db.query(query, values);
 
