@@ -15,10 +15,9 @@ const getPerfils = async (res) => {
 
 const selectPerfil = async (id, res) => {
   try {
-    const query = `SELECT usuario_perfil.id, usuarios.nome AS "Nome", usuario_perfil.foto AS "Foto", usuario_perfil.area_atuacao AS "Area de atuação", usuario_perfil.biografia AS "Biografia", usuario_perfil.linkedin AS "Linkedin", usuario_perfil.behance AS "Behance", usuario_perfil.figma AS "Figma", usuario_perfil.discord AS "Discord", usuario_perfil.github AS "Github", usuario_perfil.skills AS "Skills" FROM public.usuario_perfil JOIN public.usuarios ON usuario_perfil.usuario_id = usuarios.id WHERE id = $1 ORDER BY nome ASC;`;
+    const query = `SELECT usuario_perfil.id, usuarios.nome AS "Nome", usuario_perfil.foto AS "Foto", usuario_perfil.area_atuacao AS "Area de atuação", usuario_perfil.biografia AS "Biografia", usuario_perfil.linkedin AS "Linkedin", usuario_perfil.behance AS "Behance", usuario_perfil.figma AS "Figma", usuario_perfil.discord AS "Discord", usuario_perfil.github AS "Github", usuario_perfil.skills AS "Skills" FROM public.usuario_perfil JOIN public.usuarios ON usuario_perfil.usuario_id = usuarios.id WHERE usuario_id = $1 ORDER BY nome ASC;`;
     const values = [id];
     const { rows } = await db.query(query, values);
-
     return rows[0];
   } catch (error) {
     console.error("Error: ", error);
@@ -30,7 +29,7 @@ const selectPerfil = async (id, res) => {
 const updatePerfil = async (id, req, res) => {
   const perfil = req;
   let query, values, item;
-  console.log(perfil)
+  console.log(perfil);
 
   try {
     query = `UPDATE public.usuario_perfil SET foto = $1, area_atuacao = $2, biografia = $3, linkedin = $4, behance = $5, figma = $6, discord = $7, github = $8, skills = $9 WHERE id = $10 RETURNING *`;

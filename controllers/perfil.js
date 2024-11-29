@@ -2,7 +2,7 @@ const PerfilServices = require("../services/perfil");
 
 const getPerfis = async (_, res) => {
   try {
-    const perfis = await PerfilServices.getPerfis();
+    const perfis = await PerfilServices.getPerfis()
     res.status(200).json(perfis);
   } catch (error) {
     error instanceof Error
@@ -15,10 +15,11 @@ const selectPerfil = async (req, res) => {
   const id = parseInt(req.params.id);
   try {
     const perfil = await PerfilServices.selectPerfil(id);
+
     if (!perfil) {
       return res.status(404).json({ message: "Registro não encontrado" });
     }
-    res.status(200).json(usuario);
+    res.status(200).json(perfil);
   } catch (error) {
     error instanceof Error
       ? res.status(500).json({ error: error.message })

@@ -31,7 +31,7 @@ const selectProjeto = async (req, res) => {
     if (!projeto) {
       return res.status(404).json({ message: "Registro não encontrado" });
     }
-    res.status(200).json(usuario);
+    res.status(200).json(projeto);
   } catch (error) {
     error instanceof Error
       ? res.status(500).json({ error: error.message })
