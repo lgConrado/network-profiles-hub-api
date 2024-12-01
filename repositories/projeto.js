@@ -34,7 +34,7 @@ const insertProjeto = async (req, res) => {
 
 const getProjetos = async (res) => {
   try {
-    const query = `SELECT usuario_projetos.id, usuarios.nome AS "Nome", usuario_projetos.titulo AS "Titulo", usuario_projetos.foto_capa AS "Foto Capa", usuario_projetos.hospedagem AS "Hospedagem", usuario_projetos.prototipo AS "Protótipo", usuario_projetos.design AS "Design", usuario_projetos.aplicacao AS "Aplicação", usuario_projetos.descricao AS "Descrição", usuario_projetos.tecnologias AS "Tecnologias" FROM public.usuario_projetos JOIN public.usuarios ON usuario_projetos.usuario_id = usuarios.id ORDER BY nome ASC;`;
+    const query = `SELECT usuario_projetos.id, usuario_projetos.usuario_id, usuarios.nome AS "Nome", usuario_projetos.titulo AS "Titulo", usuario_projetos.foto_capa AS "Foto Capa", usuario_projetos.hospedagem AS "Hospedagem", usuario_projetos.prototipo AS "Protótipo", usuario_projetos.design AS "Design", usuario_projetos.aplicacao AS "Aplicação", usuario_projetos.descricao AS "Descrição", usuario_projetos.tecnologias AS "Tecnologias" FROM public.usuario_projetos JOIN public.usuarios ON usuario_projetos.usuario_id = usuarios.id ORDER BY nome ASC;`;
     const { rows } = await db.query(query);
 
     return rows;
@@ -47,7 +47,7 @@ const getProjetos = async (res) => {
 
 const selectProjeto = async (id, res) => {
   try {
-    const query = `SELECT usuario_projetos.id, usuarios.nome AS "Nome", usuario_projetos.titulo AS "Titulo", usuario_projetos.foto_capa AS "Foto Capa", usuario_projetos.hospedagem AS "Hospedagem", usuario_projetos.prototipo AS "Protótipo", usuario_projetos.design AS "Design", usuario_projetos.aplicacao AS "Aplicação", usuario_projetos.descricao AS "Descrição", usuario_projetos.tecnologias AS "Tecnologias" FROM public.usuario_projetos JOIN public.usuarios ON usuario_projetos.usuario_id = usuarios.id WHERE usuario_id = $1 ORDER BY nome ASC;`;
+    const query = `SELECT usuario_projetos.id, usuario_projetos.usuario_id, usuarios.nome AS "Nome", usuario_projetos.titulo AS "Titulo", usuario_projetos.foto_capa AS "Foto Capa", usuario_projetos.hospedagem AS "Hospedagem", usuario_projetos.prototipo AS "Protótipo", usuario_projetos.design AS "Design", usuario_projetos.aplicacao AS "Aplicação", usuario_projetos.descricao AS "Descrição", usuario_projetos.tecnologias AS "Tecnologias" FROM public.usuario_projetos JOIN public.usuarios ON usuario_projetos.usuario_id = usuarios.id WHERE usuario_id = $1 ORDER BY nome ASC;`;
     const values = [id];
     const { rows } = await db.query(query, values);
 
