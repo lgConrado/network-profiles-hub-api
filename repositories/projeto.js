@@ -3,7 +3,6 @@ const db = require("../database");
 const insertProjeto = async (req, res) => {
   const projeto = req;
   let query, values, item;
-
   try {
     query = `INSERT INTO public.usuario_projetos (usuario_id, titulo, foto_capa, hospedagem, prototipo, design, aplicacao, descricao, tecnologias) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *;`;
     values = [
@@ -18,10 +17,11 @@ const insertProjeto = async (req, res) => {
       projeto.tecnologias,
     ];
     item = await db.query(query, values);
+    console.log(item)
 
     return item.rows;
   } catch (error) {
-    console.error("Error: ", error.detail);
+    console.error("Error: ", error);
     item.rows[0]
       ? await db.query(`DELETE FROM public.usuario_projetos WHERE id = $1;`, [
           item.rows[0].id,

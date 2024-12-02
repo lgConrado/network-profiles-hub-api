@@ -11,7 +11,7 @@ const insertUsuario = async (req, res) => {
 
     return item.rows;
   } catch (error) {
-    console.error("Error: ", error.detail);
+    console.error("Error: ", error);
     item.rows[0]
       ? await db.query(`DELETE FROM public.usuarios WHERE id = $1;`, [
           item.rows[0].id,
